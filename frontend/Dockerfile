@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:17-alpine AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ ENV REACT_APP_BASE_URL=''
 
 COPY package*.json ./
 
-RUN npm ci
+RUN npm install --legacy-peer-deps
 
 COPY public/ ./public/
 COPY src/ ./src/
